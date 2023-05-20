@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class Database {
     private static Connection connection = null;
 
-    public static void connect() {
+    public static void connect1() {
         if (connection == null) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,14 +26,14 @@ public class Database {
             }
         }
     }
-    public static void connect1() {
+    public static void connect() {
         if (connection != null) return;
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(String.format("jdbc:mysql:///%s", "Hoc_Phan"));
         config.setUsername("root");
         config.setPassword("123456");
         config.addDataSourceProperty("socketFactory", "com.google.cloud.sql.mysql.SocketFactory");
-        config.addDataSourceProperty("cloudSqlInstance", "api-382801:asia-southeast1:mysql");
+        config.addDataSourceProperty("cloudSqlInstance", "sgu-api-385903:asia-southeast1:v1");
         try {
             connection = new HikariDataSource(config).getConnection();
         } catch (SQLException e) {

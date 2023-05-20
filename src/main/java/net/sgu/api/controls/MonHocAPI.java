@@ -26,5 +26,10 @@ public class MonHocAPI {
     public MonHoc getMonHoc(@PathVariable String ma) {
         return dao.getById(ma);
     }
+    @GetMapping("ds-gv/{ma}")
+    @CrossOrigin(origins = "*")
+    public List<String> getDSGV(@PathVariable String ma) {
+        return dao.getDSGV(ma);
+    }
 
 }

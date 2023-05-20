@@ -27,6 +27,23 @@ public class MonHocDAO {
         }
         return data;
     }
+    public List<String> getDSGV(String maMh) {
+        List<String> data = new ArrayList<>();
+        try {
+            Statement stmt = Database.getConnect().createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT DISTINCT bh.giang_vien\n" +
+                    "FROM buoi_hoc bh\n" +
+                    "         INNER JOIN nhom n ON bh.ma_nhom = n.ma\n" +
+                    "         INNER JOIN mon_hoc mh ON n.ma_mh = mh.ma\n" +
+                    "WHERE mh.ma = '"+maMh+"';");
+            while (rs.next()) {
+                data.add(rs.getString("giang_vien"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 
     public void merge(MonHoc mh) {
         try {

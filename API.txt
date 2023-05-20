@@ -1,6 +1,7 @@
 1.mon-hoc
 	mon-hoc/all :tất cả môn học.	/mon-hoc/all
 	mon-hoc/id/mã: lấy theo mã môn.	/mon-hoc/id/841464
+	mon-hoc/ds-gv/mã: các giảng viên theo mã môn.	/mon-hoc/ds-gv/841464
 2.nhom
 	nhom/all : tất cả nhóm.	/nhom/all
 	nhom/id/mã-nhóm: lấy nhóm theo mã nhóm.	/nhom/id/1
